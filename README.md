@@ -440,10 +440,7 @@ toute les cases capturables à partir de cette case. Cette méthode s'occupe aus
 le score de chaque joueur pour maintenir le score à jour.
 
 11. On s’intéresse maintenant à ce qui doit se passer lorsqu’un joueur appuie sur un bouton. Pour cela, avec une expression lambda, vous allez écrire une classe implémentant l’interface `EventHandler<ActionEvent>`. On conservera une seule instance utilisée comme auditeur de tous les « événements action » produits par les boutons du jeu dans la donnée membre `caseListener`.
-
-Écrivez une classe `AuditeurCase`, interne à la classe `Othellier`, implémentant l’interface `EventHandler<ActionEvent>`. 
-
-Cette classe se réduit à la méthode imposée `public void handle(ActionEvent evt)`, qui doit effectuer les tâches suivantes :
+Cette lambda implémente la méthode imposée `public void handle(ActionEvent evt)`, qui doit effectuer les tâches suivantes :
     
    - identifier le bouton ayant produit l’événement (pensez à la méthode `getSource()` du paramètre `evt`).
     
@@ -453,8 +450,6 @@ Cette classe se réduit à la méthode imposée `public void handle(ActionEvent 
     
    - choisir le prochain joueur qui doit jouer.
     
-On notera qu'une unique instance de cette classe doit être ajoutée comme auditeur de toutes les cases.
-
 12. Écrire la méthode `public ObjectProperty<Joueur> joueurCourantProperty()` qui retourne la propriété correspondante.
 
 13. Écrire la méthode `private boolean estIndicesValides()` qui utilise `estIndiceValide()` et retourne vrai si la cellule correspondant à la ligne et colonne donnés en paramètre a un indice valide.
